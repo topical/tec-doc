@@ -3,8 +3,8 @@
 *.log
 *.lot
 *.out
-*.pdf
 *.gz
 *.toc
 *.bbl
 *.blg
+/*.pdf
