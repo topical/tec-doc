@@ -1,7 +1,28 @@
 \chapter{Theoretische Grundlagen}
-Wir möchten eine Liste von Korrespondenzzirkel verwalten. Den Zirkeln sollen Teilnehmer zugeordnet werden. Jeder Korrespondenzzirkel soll aus mehreren Korrespondenzen bestehen. Es sollen Teilnehmerlisten eines Zirkels generiert werden. Eine Korrespondenz hat eine maximal erreichende Punktzahl, welche nur insgesamt festgelegt wird. Teilnehmer bekommen für ihre Lösung einer Korrespondenz Punkte. Von den Teilnehmern sollen Name, Anschrift und Schule hinterlegt werden. Es soll eine Übersicht von allen erzielten Punkten innerhalb eines Korrespondenzzirkels erstellt werden. Dabei soll für jeden Teilnehmer die Gesamtpunktzahl ausgegeben werden. Um mit dem Programm arbeiten zu können, muss man über ein Konto verfügen. Die Anmeldungen werden durch den Administrator geregelt. 
-Wie kann ich sicher stellen, dass mehrere Leute parallel damit arbeiten können Website
+
+Wir möchten Korrespondenzzirkel, Teilnehmer, Aufgaben und Ergebnisse verwalten.
+
+Für jeden Korrespondenzzirkel müssen Fach und Klassenstufe festgelegt werden. 
+Teilnehmer sind Schüler, deren Name, Anschrift und Schule eingegeben wurden. Für jede Schule muss der Name und die Anschrift gespeichert werden. 
+Jeder Korrespondenzzirkel besteht aus mehreren Aufgabenserien, die jeweils eine maximal erzielbare Punktzahl haben. Eine Aufgliederung auf einzelne Aufgaben soll aus Gründen der Übersichtlichkeit nicht erfolgen.
+Für abgegebene Aufgaben bekommen Teilnehmer Punkte. Für jeden Zirkel soll es eine nach Schülern gegliederte Zusammenfassung aller bisher erzielten Punkte geben.
+
+Um mit dem Programm arbeiten zu können, muss man über ein Nutzerkonto verfügen. Die Anlage von Nutzerkonten wird durch einen Administrator geregelt. Dies ist ein spezieller Nutzer mit erweiterten Rechten.
+
+Die Software sollte parallel durch mehrere Nutzer verwendbar sein.
+Die Programmierung sollte mit möglichst geringem Aufwand erfolgen.
+Da die beiden Programmierer in verschiedenen Orten wohnen, muss die gleichzeitig Arbeit am Projekt koordiniert werden.
 
 \chapter{Lösungsidee}
-Wir nutzen als Datenbanksystem und als Programmiersprache PHP. Wir erstellen eine Webseite die in der Schule auf einem beliebigen Server gehostet und bequem von mehreren Nutzern verwendet werden kann. Um die Pflege der Stammdaten der Teilnehmer zu erleichtern, trennen wir die Schüler-Stammdaten von den Teilnahmeinformationen. Damit müssen die Stammdaten von Schülern, die an mehreren Zirkeln teilnehmen, nur einmal eingegeben werden. Die verschiedenen Fachbereiche werden in separaten Tabellen hinterlegt, um die Flexibilität zu gewährleisten.\\ 
-Um das Programmieren zu erleichtern nutzen wir das PHP-Framework Laravel. Dieses Framework benutzt einen Bootstrap, der die Verschönerung der Webseite erleichtert. Dieser liegt auf dem Server.  Für eine bessere Benutzerinteraktion  wird auf JavaScript zurückgegriffen. Dieses läuft im Browser.\\
+
+Die parallele Nutzung ermöglichen wir durch eine Aufbau einer eigenen Webseite. Dadurch müssen die Nutzer auch keine Software auf ihren Rechnern installieren. Die Webseite kann in der Schule auf einem beliebigen Server gehostet werden. 
+
+Als Datenbanksystem verwenden wir MySQL und als Programmiersprache PHP zusammen mit Apache. Für die Entwicklung wird XAMPP eingesetzt, da es die Installation und Verwaltung dieser Softwarepakete unter Windows vereinfacht. Später können MySQL, PHP und Apache auf einem beliebigen Server installiert werden.
+
+Der Zugriff auf das Programm erfolgt mit einem beliebigen Browser. Für eine bessere Benutzerinteraktion wird zum Teil auf JavaScript zurückgegriffen. Damit können Teile des Programms direkt im Browser laufen.
+
+Um die Pflege der Stammdaten der Teilnehmer zu erleichtern, trennen wir die Stammdaten der Schüler von den Teilnahmeinformationen. Damit müssen die Daten von Schülern, die an mehreren Zirkeln teilnehmen, nur einmal eingegeben werden. Bei den Schülern speichern wir zudem anstelle der aktuellen Klassenstufe das Einschulungsjahr. Dadurch wird nach einem Schuljahreswechsel die Klassenstufen automatisch angepasst und die Daten der Schüler können wiederverwendet werden.
+
+Eine komplette Webseite zu programmieren ist sehr aufwändig. Wir nutzen deshalb das PHP-Framework Laravel. Es nimmt dem Entwickler sehr viel Arbeit beim Erstellen einer Website und beim Zugriff auf die Datenbank wird ab. Das Framework verwendet Bootstrap, um die Webseite optisch ansprechend zu gestalten. 
+
+Für die parallele Entwicklung setzen wir die Quellcodeverwaltung git ein. Jeder kann dadurch für sich arbeiten und die Ergebnisse regelmäßig über github austauschen. github sorgt auch dafür, dass das Projekt ausfallsicher gespeichert ist.
