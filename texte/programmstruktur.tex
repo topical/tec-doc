@@ -1,10 +1,10 @@
 \section{Programmstruktur}
 
-Für die Programmierung wurde das php-Framework "`Laravel"' verwendet. Dieses gibt die grobe Struktur des gesamten Projekts vor, sowohl welche Verzeichnisse verwendet werden und wie die Dateien und Klassen heißen sollen. \cite{laravel}
+Für die Programmierung wurde das php-Framework "`Laravel"' verwendet. Dieses gibt die grobe Struktur des gesamten Projekts vor, sowohl welche Verzeichnisse verwendet werden als auch wie die Dateien und Klassen heißen sollen. \cite{laravel}
 
 \subsection{Verzeichnisse}
 
-Bereits bei einem neu angelegten Laravel-Projekt werden sehr viele Verzeichnisse und Dateien angelegt. Viele davon muss man nur für komplexere Programme anpassen. Nachfolgend sind deshalb nur die angepassten Verzeichnisse oder spezielle Dateien beschrieben.
+Bereits bei einem neu angelegten Laravel-Projekt werden sehr viele Verzeichnisse und Dateien generiert. Viele davon muss man nur für komplexere Programme anpassen. Nachfolgend sind deshalb nur die angepassten Verzeichnisse oder spezielle Dateien beschrieben.
 
 \subsubsection{app}
 
@@ -40,13 +40,13 @@ Zu Testzwecken kann man automatisch Datenbankeinträge generieren. Hier befinden
 
 \subsubsection{database/migrations}
 
-Die Datenbankstruktur ändert sich fortlaufend während der Entwicklung. Wenn neue Funktionen eingebaut werden, braucht man auch neue Tabellen oder Spalten. Um diese nicht per Hand in der Datenbank anzulegen, kann man diese Änderungen mittels Datenbank-"Migrationen" definieren. Laravel prüft dann auf Wunsch, welche Migrationen in der aktuellen Datenbank fehlen und führt sie automatisch aus. Umgekehrt können auch Migrationen zurückgenommen werden, z.B. wenn die neue Programmversion nicht funktioniert und man den alten Stand der Datenbank wiederherstellen möchte.
+Die Datenbankstruktur ändert sich fortlaufend während der Entwicklung. Wenn neue Funktionen eingebaut werden, braucht man auch neue Tabellen oder Spalten. Um diese nicht per Hand in der Datenbank anlegen zu müssen, kann man diese Änderungen mittels Datenbank-"`Migrationen"' definieren. Laravel prüft dann auf Wunsch, welche Migrationen in der aktuellen Datenbank fehlen und führt sie automatisch aus. Umgekehrt können auch Migrationen zurückgenommen werden, z.B. wenn die neue Programmversion nicht funktioniert und man den alten Stand der Datenbank wiederherstellen möchte.
 
 Jede Migration wird in diesem Pfad in einer eigenen Datei abgelegt. Der Name beginnt dabei mit aktuellem Datum und Uhrzeit. Dadurch werden die Migrationen immer in der richtigen Reihenfolge abgearbeitet.
 
 \subsubsection{database/seeds}
 
-Um die gesamte Datenbank mit Testdaten zu füllen, kann man Datenbank-"`Seeder"' anlegen. Zum Anlegen der einzelnen Einträge verwendet man oben definierte Datenbank-"`Factories"'.
+Um die gesamte Datenbank mit Testdaten zu füllen, kann man Datenbank-"`Seeder"' programmieren. Zum Anlegen der einzelnen Einträge verwendet man oben definierte Datenbank-"`Factories"'.
 
 \subsubsection{resources}
 
@@ -54,7 +54,7 @@ Unter diesem Verzeichnis werden alle Arten von Resourcen abgelegt.
 
 \subsubsection{resources/lang}
 
-Laravel unterstützt mehrsprachige Projekte. Im diesem Verzeichnis befindet sich für jede Sprache ein Unterverzeichnis (z.B. "`de"' für deutsch), in dem passend übersetzte Meldungen abgelegt sind.
+Laravel unterstützt mehrsprachige Projekte. Im diesem Verzeichnis befindet sich für jede Sprache ein Unterverzeichnis (z.B. "`de"' für deutsch), in dem passend übersetzte Meldungen hinterlegt sind.
 
 \subsubsection{resource/views}
 
@@ -68,7 +68,7 @@ Für jede Tabelle gibt es eine Model-Klasse. Diese enthält:
 
   \begin{itemize}
   	\item den Namen der zugehörigen Tabelle
-  	\item eine Liste aller Spalten beziehungsweise Attribute (jede Spalte einer Tabelle entspricht ein Attribut einer Klasse)
+  	\item eine Liste aller Spalten beziehungsweise Attribute (jede Spalte einer Tabelle entspricht einem Attribut einer Klasse)
   	\item Funktionen, um entsprechend des ERP-Modells auf andere Tabellen zuzugreifen; z.B. kann man damit für ein Schule eine Liste aller ihrer Schüler erhalten
   	\item Hilfsfunktionen, z.B. um das Jahr der Einschulung in die aktuelle Klassenstufe eines Schülers umzurechnen
   \end{itemize}
@@ -76,14 +76,14 @@ Für jede Tabelle gibt es eine Model-Klasse. Diese enthält:
 Es gibt folgende Models:
 
 \begin{itemize}
-	\item \textit{Batch} - Aufgabenserie
-	\item \textit{Circle} - Korrespondenzzirkel
-	\item \textit{Pupil} - Schüler
-	\item \textit{Registration} - Zuordnung von Korrespondenzzirkel und registriertem Schüler
-	\item \textit{School} - Schule
-	\item \textit{Subject} - Fach
-	\item \textit{Submission} - abgegebene Aufgabenserie
-	\item \textit{User} - Nutzer des Programms
+	\item \textit{Batch} -- Aufgabenserie
+	\item \textit{Circle} -- Korrespondenzzirkel
+	\item \textit{Pupil} -- Schüler
+	\item \textit{Registration} -- Zuordnung von Korrespondenzzirkel und registriertem Schüler
+	\item \textit{School} -- Schule
+	\item \textit{Subject} -- Fach
+	\item \textit{Submission} -- abgegebene Aufgabenserie
+	\item \textit{User} -- Nutzer des Programms
 \end{itemize}
 
 \subsubsection{Controller}
@@ -91,40 +91,40 @@ Es gibt folgende Models:
 Für jedes Model gibt es einen Controller, der ein Model anzeigt oder verändert. Die Standardmethoden sind:
 
 \begin{itemize}
-	\item \textit{index} - gibt eine Liste alle Models aus
-	\item \textit{create} - zeigt eine Seite zum Anlegen eines neuen Model
-	\item \textit{store} - speichert ein neues Model in der Datenbank
-	\item \textit{show} - zeigt ein Model an
-	\item \textit{edit} - zeigt eine Seite zum Ändern eines Model an
-	\item \textit{update} - ändert den Inhalt eines Model
-	\item \textit{destroy} - löscht ein Model
+	\item \textit{index} -- gibt eine Liste aller Models aus
+	\item \textit{create} -- zeigt eine Seite zum Anlegen eines neuen Models
+	\item \textit{store} -- speichert ein neues Model in der Datenbank
+	\item \textit{show} -- zeigt ein Model an
+	\item \textit{edit} -- zeigt eine Seite zum Ändern eines Models an
+	\item \textit{update} -- ändert den Inhalt eines Models
+	\item \textit{destroy} -- löscht ein Model
 \end{itemize}
 
-Der Name eines Controller entspricht dem Namen des Modul plus "`Controller"', der Controller für Schüler ("`Pupil"') hat also den Namen "`PupilController"'.
+Der Name eines Controllers entspricht dem Namen des Models plus "`Controller"', der Controller für Schüler ("`Pupil"') hat also den Namen "`PupilController"'.
 
 \subsubsection{Middleware}
 
-Es gibt hier nur 1 neue Klasse namens "`Admin"'. Seiten, die diese Middleware verwenden, dürfen nur von einem Administrator aufgerufen werden.
+Es gibt hier nur eine neue Klasse namens "`Admin"'. Seiten, die diese Middleware verwenden, dürfen nur von einem Administrator aufgerufen werden.
 
 \subsubsection{routes.php}
 
-In dieser Datei wird festgelegt, unter welcher URL welcher Controller zu erreichen ist. Außerdem wird hier auch gleich die Middleware angegeben, damit z.B. die Nutzerverwaltung nur für den Administrator erreichbar ist.
+In dieser Datei wird festgelegt, unter welcher URL welcher Controller zu erreichen ist. Außerdem wird hier auch gleich die Middleware angegeben, damit z.B. die Nutzerverwaltung nur für einen Administrator erreichbar ist.
 
 \subsubsection{AuthServiceProvider}
 
-Hier werden Regeln für die Zutrittskontrolle definiert, z.B. dass Administratoren Nutzer sind, bei denen das Attribute "`isadmin"' gesetzt ist.
+Hier werden Regeln für die Zutrittskontrolle definiert, z.B. dass Administratoren Nutzer sind, bei denen das Attribute "`is\_admin"' gesetzt ist.
 
 \subsubsection{Seed}
 
 Um eine Tabelle mit Daten zu füllen, gibt es Seed-Klassen. Folgende Klassen wurden für Testzwecke programmiert:
 
 \begin{itemize}
-	\item \textit{BatchSeeder} - erzeugt zufällig Aufgabenserien
-	\item \textit{CircleSeeder} - erzeugt zufällig Korrespondenzzirkeln
-	\item \textit{DatabaseSeeder} - füllt in einem Schritt alle Datenbanktabellen mit Testdaten
-	\item \textit{PupilTableSeeder} - erzeugt zufällig Schüler
-	\item \textit{RegistrationSeeder} - trägt willkürlich Schüler bei Korrespondenzzirkeln ein
-	\item \textit{SchoolSeeder} - erzeugt zufällig Schulen
-	\item \textit{SubjectSeeder} - erzeugt Standardfächer
-	\item \textit{SubmissionSeeder} - erzeugt zufällig Punkte für abgegebene Aufgaben
+	\item \textit{BatchSeeder} -- erzeugt zufällig Aufgabenserien
+	\item \textit{CircleSeeder} -- erzeugt zufällig Korrespondenzzirkeln
+	\item \textit{DatabaseSeeder} -- füllt in einem Schritt alle Datenbanktabellen mit Testdaten
+	\item \textit{PupilTableSeeder} -- erzeugt zufällig Schüler
+	\item \textit{RegistrationSeeder} -- trägt willkürlich Schüler bei Korrespondenzzirkeln ein
+	\item \textit{SchoolSeeder} -- erzeugt zufällig Schulen
+	\item \textit{SubjectSeeder} -- erzeugt Standardfächer
+	\item \textit{SubmissionSeeder} -- erzeugt zufällig Punkte für abgegebene Aufgaben
 \end{itemize}
